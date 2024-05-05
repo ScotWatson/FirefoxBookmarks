@@ -30,9 +30,11 @@ function start([ Interface ]) {
         const fileContents = await file.text();
         const fileDocument = DOM_PARSER.parseFromString(fileContents, "text/html");
         const bookmarksBody = fileDocument.documentElement.getElementsByTagName("body")[0];
-        const bookmarksDL = bookmarksBody.getElementsByTagName("dl");
-        for (const nodeDL of bookmarksDL) {
+        const bookmarksDLs = bookmarksBody.getElementsByTagName("dl");
+        console.log(bookmarksDLs.length);
+        for (const nodeDL of bookmarksDLs) {
           console.log(nodeDL);
+          console.log(nodeDL.children.length);
           for (const subnode of nodeDL.children) {
             console.log(subnode);
           }
