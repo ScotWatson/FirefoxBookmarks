@@ -32,6 +32,10 @@ function start([ Interface ]) {
         for (const child of fileDocument.documentElement.children) {
           console.log(child);
         }
+        const bookmarksBody = fileDocument.documentElement.getElementsByTagName("body")[0];
+        for (const child of bookmarksBody.children) {
+          console.log(child);
+        }
       })();
     });
   } catch (e) {
