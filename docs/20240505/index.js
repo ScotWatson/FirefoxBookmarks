@@ -20,7 +20,7 @@ function fail() {
 const DOM_PARSER = new DOMParser();
 function start([ Interface ]) {
   try {
-    async function () {
+    (async function () {
       const file = await Interface.modalSingleFile({
         parameters: {},
       });
@@ -29,7 +29,7 @@ function start([ Interface ]) {
       for (const child of fileDocument.children) {
         console.log(child);
       }
-    });
+    })();
   } catch (e) {
     console.error(e);
   }
