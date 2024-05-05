@@ -28,7 +28,7 @@ function start([ Interface ]) {
           parameters: {},
         });
         const fileContents = await file.text();
-        const fileDocument = DOM_PARSER.parseFromText(fileContents);
+        const fileDocument = DOM_PARSER.parseFromString(fileContents, "text/html");
         for (const child of fileDocument.children) {
           console.log(child);
         }
