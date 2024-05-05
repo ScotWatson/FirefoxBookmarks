@@ -29,7 +29,7 @@ function start([ Interface ]) {
         });
         const fileContents = await file.text();
         const fileDocument = DOM_PARSER.parseFromString(fileContents, "text/html");
-        for (const child of fileDocument.children) {
+        for (const child of fileDocument.documentElement.children) {
           console.log(child);
         }
       })();
