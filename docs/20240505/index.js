@@ -20,16 +20,20 @@ function fail() {
 const DOM_PARSER = new DOMParser();
 function start([ Interface ]) {
   try {
-    (async function () {
-      const file = await Interface.modalSingleFile({
-        parameters: {},
-      });
-      const fileContents = await file.text();
-      const fileDocument = DOM_PARSER.parseFromText(fileContents);
-      for (const child of fileDocument.children) {
-        console.log(child);
-      }
-    })();
+    document.body.style.fontSize = "48pt";
+    document.body.append("Click to Start");
+    document.body.addEventListener("click", function () {
+      (async function () {
+        const file = await Interface.modalSingleFile({
+          parameters: {},
+        });
+        const fileContents = await file.text();
+        const fileDocument = DOM_PARSER.parseFromText(fileContents);
+        for (const child of fileDocument.children) {
+          console.log(child);
+        }
+      })();
+    });
   } catch (e) {
     console.error(e);
   }
