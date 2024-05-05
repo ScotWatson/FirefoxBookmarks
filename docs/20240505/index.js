@@ -30,11 +30,16 @@ function start([ Interface ]) {
         const fileContents = await file.text();
         const fileDocument = DOM_PARSER.parseFromString(fileContents, "text/html");
         const bookmarksBody = fileDocument.documentElement.getElementsByTagName("body")[0];
-        for (const child of bookmarksBody.children) {
-          if (child.nodeName === "DL") {
-            console.log(child);
-            for (const subnode of child.children) {
-              console.log(subnode);
+        for (const childDL of bookmarksBody.children) {
+          if (childDL.nodeName === "DL") {
+            console.log(childDL);
+            for (const childDT of childDL.children) {
+              // P is empty
+              if (childDT.nodeName === "DT") {
+                for (const child of childDT.children) {
+                  console.log(child);
+                }            
+              }
             }            
           }
         }
