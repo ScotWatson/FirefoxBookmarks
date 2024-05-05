@@ -29,12 +29,13 @@ function start([ Interface ]) {
         });
         const fileContents = await file.text();
         const fileDocument = DOM_PARSER.parseFromString(fileContents, "text/html");
-        for (const child of fileDocument.documentElement.children) {
-          console.log(child);
-        }
         const bookmarksBody = fileDocument.documentElement.getElementsByTagName("body")[0];
-        for (const child of bookmarksBody.children) {
-          console.log(child);
+        const bookmarksDL = bookmarksBody.getElementsByTagName("dl");
+        for (const nodeDL of bookmarksDL) {
+          console.log(nodeDL);
+          for (const subnode of nodeDL.children) {
+            console.log(subnode);
+          }
         }
       })();
     });
