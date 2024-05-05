@@ -33,7 +33,7 @@ function start([ Interface ]) {
         for (const child of bookmarksBody.children) {
           if (child.nodeName === "DL") {
             console.log(child);
-            for (const subnode of bookmarksBody.children) {
+            for (const subnode of child.children) {
               console.log(subnode);
             }            
           }
