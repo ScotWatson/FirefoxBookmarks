@@ -36,6 +36,7 @@ function start([ Interface ]) {
             for (const childDT of childDL.children) {
               // P is empty
               if (childDT.nodeName === "DT") {
+                console.log(childDT);
                 for (const child of childDT.children) {
                   console.log(child);
                 }            
